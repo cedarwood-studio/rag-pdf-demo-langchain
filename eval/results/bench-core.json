@@ -1,0 +1,76 @@
+{
+  "label": "bench-core",
+  "implementation": "LangChain",
+  "collection": "core",
+  "answer_mode": "extractive",
+  "chunks": 2448,
+  "collection_bytes": 5931425,
+  "table_with_indexes_bytes": 8978432,
+  "exact": {
+    "embed": {
+      "p50_ms": 18.9,
+      "p95_ms": 52.5
+    },
+    "search": {
+      "p50_ms": 19.5,
+      "p95_ms": 31.8
+    },
+    "rerank": {
+      "p50_ms": 0.0,
+      "p95_ms": 0.0
+    },
+    "total": {
+      "p50_ms": 61.4,
+      "p95_ms": 97.5
+    },
+    "samples": 102
+  },
+  "exact_without_text_index": {
+    "total": {
+      "p50_ms": 66.4,
+      "p95_ms": 132.6
+    },
+    "samples": 34
+  },
+  "hnsw": {
+    "embed": {
+      "p50_ms": 15.8,
+      "p95_ms": 48.2
+    },
+    "search": {
+      "p50_ms": 20.6,
+      "p95_ms": 32.3
+    },
+    "rerank": {
+      "p50_ms": 0.0,
+      "p95_ms": 0.0
+    },
+    "total": {
+      "p50_ms": 61.1,
+      "p95_ms": 96.3
+    },
+    "samples": 102,
+    "build_seconds": 0.6,
+    "top5_overlap_with_exact": 1.0,
+    "table_with_indexes_bytes": 13967360
+  },
+  "exact_with_rerank": {
+    "embed": {
+      "p50_ms": 25.1,
+      "p95_ms": 60.7
+    },
+    "search": {
+      "p50_ms": 18.8,
+      "p95_ms": 28.0
+    },
+    "rerank": {
+      "p50_ms": 742.7,
+      "p95_ms": 1202.5
+    },
+    "total": {
+      "p50_ms": 817.3,
+      "p95_ms": 1279.5
+    },
+    "samples": 34
+  }
+}

@@ -1,0 +1,43 @@
+services:
+  db:
+    image: docker.io/pgvector/pgvector:0.8.0-pg16
+    environment:
+      POSTGRES_USER: rag
+      POSTGRES_PASSWORD: rag
+      POSTGRES_DB: rag
+    ports:
+      - "127.0.0.1:${DB_PORT:-54429}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rag -d rag"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://rag:rag@db:5432/rag
+      CORPUS: ${CORPUS:-core}
+      SCORE_THRESHOLD: ${SCORE_THRESHOLD:-0.62}
+      STRICT_THRESHOLD: ${STRICT_THRESHOLD:-0.75}
+      RERANK: ${RERANK:-1}
+      RERANK_THRESHOLD: ${RERANK_THRESHOLD:--1.5}
+      USE_INDEX: ${USE_INDEX:-0}
+      TOP_K: ${TOP_K:-5}
+      # Passed through from your shell when set. Leave it unset for extractive answers.
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://api.openai.com/v1}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+    ports:
+      - "127.0.0.1:${APP_PORT:-8100}:8000"
+    volumes:
+      - ${DATA_DIR:-./data}:/app/data
+      - ./eval:/app/eval
+
+volumes:
+  pgdata:

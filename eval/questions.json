@@ -1,0 +1,306 @@
+[
+  {
+    "id": "in-01",
+    "question": "What is the minimum length for a password that a user chooses themselves?",
+    "document": "NIST.SP.800-63b.pdf",
+    "pages": [
+      24
+    ],
+    "reference": "At least 8 characters."
+  },
+  {
+    "id": "in-02",
+    "question": "Should we force users to change their passwords on a regular schedule?",
+    "document": "NIST.SP.800-63b.pdf",
+    "pages": [
+      25,
+      65
+    ],
+    "reference": "No. Passwords should not have to be changed arbitrarily or periodically; a change should be forced only when there is evidence of compromise."
+  },
+  {
+    "id": "in-03",
+    "question": "At authenticator assurance level 2, after how long without activity does a user have to sign in again?",
+    "document": "NIST.SP.800-63b.pdf",
+    "pages": [
+      19,
+      22
+    ],
+    "reference": "After 30 minutes of inactivity (and in any case at least once every 12 hours)."
+  },
+  {
+    "id": "in-04",
+    "question": "What is the difference between a cold site, a warm site and a hot site?",
+    "document": "nistspecialpublication800-34r1.pdf",
+    "pages": [
+      36,
+      37,
+      61,
+      62
+    ],
+    "reference": "A cold site has space and basic infrastructure such as power and HVAC but no equipment in place. A warm site is partially equipped with some or all of the hardware, software, telecommunications and power. A hot site is fully equipped and ready to operate."
+  },
+  {
+    "id": "in-05",
+    "question": "What does recovery point objective mean?",
+    "document": "nistspecialpublication800-34r1.pdf",
+    "pages": [
+      31,
+      121,
+      144
+    ],
+    "reference": "The point in time, before a disruption or outage, to which data can be recovered after the outage, given the most recent backup."
+  },
+  {
+    "id": "in-06",
+    "question": "What is a tabletop exercise?",
+    "document": "nistspecialpublication800-34r1.pdf",
+    "pages": [
+      43
+    ],
+    "reference": "A discussion-based exercise in which personnel meet in a classroom setting or breakout groups to talk through their roles and their responses to an emergency scenario presented by a facilitator."
+  },
+  {
+    "id": "in-07",
+    "question": "What is the difference between clearing, purging and destroying media?",
+    "document": "NIST.SP.800-88r1.pdf",
+    "pages": [
+      18
+    ],
+    "reference": "Clear uses logical techniques on user-addressable storage and protects against simple, non-invasive recovery. Purge uses physical or logical techniques that make recovery infeasible even with state of the art laboratory techniques. Destroy also makes recovery infeasible and leaves the media unusable for storing data."
+  },
+  {
+    "id": "in-08",
+    "question": "What record should be filled in after a drive has been sanitized?",
+    "document": "NIST.SP.800-88r1.pdf",
+    "pages": [
+      31,
+      32,
+      65
+    ],
+    "reference": "A certificate of media disposition (certificate of sanitization), completed for each piece of media that has been sanitized."
+  },
+  {
+    "id": "in-09",
+    "question": "What is the difference between a precursor and an indicator of an incident?",
+    "document": "NIST.SP.800-61r2.pdf",
+    "pages": [
+      36
+    ],
+    "reference": "A precursor is a sign that an incident may occur in the future. An indicator is a sign that an incident may have occurred or may be occurring now."
+  },
+  {
+    "id": "in-10",
+    "question": "How soon after an incident should the lessons learned meeting take place?",
+    "document": "NIST.SP.800-61r2.pdf",
+    "pages": [
+      48
+    ],
+    "reference": "Within several days of the end of the incident."
+  },
+  {
+    "id": "in-11",
+    "question": "What categories describe how much effort it takes to recover from an incident?",
+    "document": "NIST.SP.800-61r2.pdf",
+    "pages": [
+      43
+    ],
+    "reference": "Regular, Supplemented, Extended and Not Recoverable."
+  },
+  {
+    "id": "in-12",
+    "question": "What structures can an incident response team have?",
+    "document": "NIST.SP.800-61r2.pdf",
+    "pages": [
+      23
+    ],
+    "reference": "A central incident response team, distributed incident response teams, or a coordinating team."
+  },
+  {
+    "id": "in-13",
+    "question": "What are the six functions of the Cybersecurity Framework?",
+    "document": "NIST.CSWP.29.pdf",
+    "pages": [
+      8,
+      31
+    ],
+    "reference": "Govern, Identify, Protect, Detect, Respond and Recover."
+  },
+  {
+    "id": "in-14",
+    "question": "What are the four tiers called?",
+    "document": "NIST.CSWP.29.pdf",
+    "pages": [
+      12,
+      29,
+      31
+    ],
+    "reference": "Partial (Tier 1), Risk Informed (Tier 2), Repeatable (Tier 3) and Adaptive (Tier 4)."
+  },
+  {
+    "id": "in-15",
+    "question": "What are the main kinds of remote access methods for teleworkers?",
+    "document": "NIST.SP.800-46r2.pdf",
+    "pages": [
+      14
+    ],
+    "reference": "Tunneling, portals, remote desktop access and direct application access."
+  },
+  {
+    "id": "in-16",
+    "question": "How can we find out whether an employee's phone has been jailbroken?",
+    "document": "NIST.SP.800-46r2.pdf",
+    "pages": [
+      27,
+      35
+    ],
+    "reference": "With network access control health checks or mobile device management (MDM) software, which can detect a device that has been rooted or jailbroken."
+  },
+  {
+    "id": "in-17",
+    "question": "What should we do about systems that cannot be patched?",
+    "document": "NIST.SP.800-40r4.pdf",
+    "pages": [
+      19,
+      22,
+      23
+    ],
+    "reference": "Reduce their risk with isolation or other long-term mitigation methods besides patching, for example network segmentation, and plan and review those methods."
+  },
+  {
+    "id": "in-18",
+    "question": "How does emergency patching differ from routine patching?",
+    "document": "NIST.SP.800-40r4.pdf",
+    "pages": [
+      18,
+      19,
+      22
+    ],
+    "reference": "Routine patching is the standard procedure for patches on a regular release cycle. Emergency patching handles a crisis such as a severe or actively exploited vulnerability, with the same general approach on a highly accelerated schedule."
+  },
+  {
+    "id": "in-19",
+    "question": "What is the difference between security awareness and security training?",
+    "document": "nistspecialpublication800-50.pdf",
+    "pages": [
+      20,
+      21
+    ],
+    "reference": "Awareness only focuses attention on security so that people recognize concerns and respond accordingly. Training aims to produce relevant and needed security skills and competencies."
+  },
+  {
+    "id": "in-20",
+    "question": "What models are there for organizing a security awareness and training program?",
+    "document": "nistspecialpublication800-50.pdf",
+    "pages": [
+      11,
+      23,
+      24
+    ],
+    "reference": "Three models: centralized (central policy, strategy and implementation), partially decentralized (central policy and strategy, distributed implementation) and fully decentralized (central policy, distributed strategy and implementation)."
+  },
+  {
+    "id": "in-21",
+    "question": "What is a keystroke logger?",
+    "document": "NIST.SP.800-83r1.pdf",
+    "pages": [
+      15
+    ],
+    "reference": "A tool that monitors and records keyboard use."
+  },
+  {
+    "id": "in-22",
+    "question": "What is sandboxing and how does it limit malware?",
+    "document": "NIST.SP.800-83r1.pdf",
+    "pages": [
+      9,
+      26
+    ],
+    "reference": "A security model in which applications run inside a controlled environment that restricts the operations they can perform and isolates them from other applications on the host."
+  },
+  {
+    "id": "in-23",
+    "question": "How often should a small business make a full backup of its data?",
+    "document": "NIST.IR.7621r1.pdf",
+    "pages": [
+      32
+    ],
+    "reference": "At least once a month."
+  },
+  {
+    "id": "in-24",
+    "question": "Why should a small business install an uninterruptible power supply?",
+    "document": "NIST.IR.7621r1.pdf",
+    "pages": [
+      25
+    ],
+    "reference": "A UPS provides a limited amount of battery power so that work can continue through short power outages and data can be saved before systems shut down."
+  },
+  {
+    "id": "in-25",
+    "question": "Is it safe to check work email from a hotel kiosk computer?",
+    "document": "NIST.SP.800-114r1.pdf",
+    "pages": [
+      10,
+      37
+    ],
+    "reference": "No, it is risky. A kiosk is controlled by a third party, so the teleworker cannot know whether it is secured or compromised; it may carry malware that steals passwords."
+  },
+  {
+    "id": "in-26",
+    "question": "What are the three basic types of information security policy?",
+    "document": "NIST.SP.800-12r1.pdf",
+    "pages": [
+      36
+    ],
+    "reference": "Program policy, issue-specific policy and system-specific policy."
+  },
+  {
+    "id": "out-01",
+    "question": "What is the refund policy for annual subscriptions?",
+    "document": null,
+    "pages": []
+  },
+  {
+    "id": "out-02",
+    "question": "What is the capital of Australia?",
+    "document": null,
+    "pages": []
+  },
+  {
+    "id": "out-03",
+    "question": "How do I descale an espresso machine?",
+    "document": null,
+    "pages": []
+  },
+  {
+    "id": "out-04",
+    "question": "What are the maximum fines under GDPR for a data breach?",
+    "document": null,
+    "pages": []
+  },
+  {
+    "id": "out-05",
+    "question": "How much does ISO 27001 certification cost?",
+    "document": null,
+    "pages": []
+  },
+  {
+    "id": "out-06",
+    "question": "What caused the 2017 Equifax breach?",
+    "document": null,
+    "pages": []
+  },
+  {
+    "id": "out-07",
+    "question": "Which encryption protocol does WhatsApp use for its messages?",
+    "document": null,
+    "pages": []
+  },
+  {
+    "id": "out-08",
+    "question": "How do I configure single sign-on for Salesforce with Okta?",
+    "document": null,
+    "pages": []
+  }
+]

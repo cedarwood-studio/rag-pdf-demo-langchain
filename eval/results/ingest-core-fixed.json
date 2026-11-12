@@ -1,0 +1,109 @@
+{
+  "collection": "core-fixed",
+  "documents": 12,
+  "pages": 805,
+  "chunks": 2899,
+  "total_seconds": 657.4,
+  "embedded_now": 2899,
+  "embedding_seconds": 605.1,
+  "from_cache": 0,
+  "parse_and_store_seconds": 52.3,
+  "per_document": [
+    {
+      "file": "NIST.CSWP.29.pdf",
+      "set": "core",
+      "pages": 32,
+      "chunks": 98,
+      "seconds": 17.3,
+      "embedding_seconds": 15.0
+    },
+    {
+      "file": "NIST.IR.7621r1.pdf",
+      "set": "core",
+      "pages": 55,
+      "chunks": 164,
+      "seconds": 47.8,
+      "embedding_seconds": 44.4
+    },
+    {
+      "file": "NIST.SP.800-12r1.pdf",
+      "set": "core",
+      "pages": 101,
+      "chunks": 374,
+      "seconds": 88.1,
+      "embedding_seconds": 81.3
+    },
+    {
+      "file": "nistspecialpublication800-34r1.pdf",
+      "set": "core",
+      "pages": 149,
+      "chunks": 539,
+      "seconds": 111.5,
+      "embedding_seconds": 104.8
+    },
+    {
+      "file": "NIST.SP.800-40r4.pdf",
+      "set": "core",
+      "pages": 28,
+      "chunks": 105,
+      "seconds": 19.7,
+      "embedding_seconds": 17.5
+    },
+    {
+      "file": "NIST.SP.800-46r2.pdf",
+      "set": "core",
+      "pages": 53,
+      "chunks": 234,
+      "seconds": 53.5,
+      "embedding_seconds": 49.1
+    },
+    {
+      "file": "nistspecialpublication800-50.pdf",
+      "set": "core",
+      "pages": 71,
+      "chunks": 206,
+      "seconds": 57.6,
+      "embedding_seconds": 54.3
+    },
+    {
+      "file": "NIST.SP.800-61r2.pdf",
+      "set": "core",
+      "pages": 80,
+      "chunks": 307,
+      "seconds": 63.5,
+      "embedding_seconds": 57.3
+    },
+    {
+      "file": "NIST.SP.800-63b.pdf",
+      "set": "core",
+      "pages": 80,
+      "chunks": 270,
+      "seconds": 65.6,
+      "embedding_seconds": 60.1
+    },
+    {
+      "file": "NIST.SP.800-83r1.pdf",
+      "set": "core",
+      "pages": 47,
+      "chunks": 202,
+      "seconds": 44.4,
+      "embedding_seconds": 40.5
+    },
+    {
+      "file": "NIST.SP.800-88r1.pdf",
+      "set": "core",
+      "pages": 65,
+      "chunks": 220,
+      "seconds": 47.4,
+      "embedding_seconds": 43.3
+    },
+    {
+      "file": "NIST.SP.800-114r1.pdf",
+      "set": "core",
+      "pages": 44,
+      "chunks": 180,
+      "seconds": 40.9,
+      "embedding_seconds": 37.4
+    }
+  ]
+}
