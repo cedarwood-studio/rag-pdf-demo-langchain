@@ -40,8 +40,12 @@ class Store:
         self.sql = sqlalchemy.create_engine(self.url)
         self.engine = PGEngine.from_connection_string(self.url)
         self._vectorstore: PGVectorStore | None = None
-        if use_index and self.exists():
-            self.create_index()
+        # Make the database match the setting: an HNSW index when use_index is on, none (exact search) when it is off.
+        if self.exists():
+            if use_index:
+                self.create_index()
+            else:
+                self.drop_index()
 
     def wait_until_ready(self, attempts: int = 30, delay: float = 2.0) -> None:
         for attempt in range(attempts):

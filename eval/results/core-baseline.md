@@ -10,7 +10,7 @@
 - Refusal threshold: 0.5
 - Strict threshold for questions with a word found nowhere in the corpus: off
 - Chunks in collection: 2899
-- Run at: 2026-11-12T00:55:34+00:00
+- Run at: 2026-11-12T01:34:40+00:00
 
 | Metric | Result |
 | --- | --- |

@@ -149,7 +149,7 @@ def build_pipeline(settings: config.Settings, spend: Spend | None = None, **over
         mode = "generated" if opt["openai_api_key"] else "extractive"
     if mode == "generated":
         spend = spend or Spend(opt["price_input_per_m"], opt["price_output_per_m"], opt["max_spend_usd"])
-        answer_chain = generated_chain(make_chat_model(opt["openai_api_key"], opt["openai_base_url"], opt["openai_model"], spend))
+        answer_chain = generated_chain(make_chat_model(opt["openai_api_key"], opt["openai_base_url"], opt["answer_model"], spend))
     else:
         answer_chain = extractive_chain()
     return Pipeline(
