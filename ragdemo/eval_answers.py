@@ -28,12 +28,11 @@ from langchain_core.language_models import BaseChatModel
 from langchain_core.output_parsers import JsonOutputParser
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import Runnable
-from openai import OpenAIError
 
 from . import config
 from .answer import format_passages
 from .eval import IMPLEMENTATION, QUESTIONS, RESULTS, _match
-from .llm import Spend, make_chat_model
+from .llm import MODEL_ERRORS, Spend, make_chat_model
 from .pipeline import Pipeline, build_pipeline
 
 CORRECTNESS_PROMPT = (
@@ -176,7 +175,7 @@ def main() -> None:
     questions = json.loads(args.questions.read_text())
     try:
         report = evaluate(pipeline, grader, questions)
-    except OpenAIError as error:
+    except MODEL_ERRORS as error:
         sys.exit(f"stopped: chat request failed: {getattr(error, 'message', type(error).__name__)}")
     label = args.label or f"answers-{args.collection}"
     report = {

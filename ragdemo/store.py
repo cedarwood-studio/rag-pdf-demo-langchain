@@ -20,6 +20,7 @@ from langchain_postgres import Column, PGEngine, PGVectorStore
 from langchain_postgres.v2.indexes import HNSWIndex, HNSWQueryOptions
 
 METADATA = ["document", "title", "page", "heading"]
+COMPLETE = "ingest complete"
 
 
 def table_name(collection: str) -> str:
@@ -80,6 +81,17 @@ class Store:
         )
         self._vectorstore = None
         self.create_text_index()
+
+    def mark_complete(self) -> None:
+        """Record on the table that every document of the collection has been stored, so an interrupted ingest is not mistaken for a finished one.
+
+        The mark is a table comment: it goes away when the table is dropped for the next ingest.
+        """
+        with self.sql.begin() as conn:
+            conn.execute(sqlalchemy.text(f"COMMENT ON TABLE \"{self.table}\" IS '{COMPLETE}'"))
+
+    def is_complete(self) -> bool:
+        return self.exists() and self._scalar("SELECT obj_description(CAST(:t AS regclass), 'pg_class')", t=f'"{self.table}"') == COMPLETE
 
     def create_text_index(self) -> None:
         """A trigram index makes "does this word occur anywhere" a fast lookup instead of a scan of every chunk."""

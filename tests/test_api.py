@@ -1,11 +1,13 @@
 import pytest
+from fastapi.testclient import TestClient
 from langchain_core.documents import Document
 from langchain_core.language_models.fake_chat_models import FakeListChatModel
 from langchain_core.messages import AIMessage
 from langchain_core.outputs import ChatGeneration, LLMResult
 
 from ragdemo.answer import generated_chain
-from ragdemo.llm import BudgetExceeded, Spend, SpendCallback
+from ragdemo.api import app, get_pipeline
+from ragdemo.llm import MODEL_ERRORS, BudgetExceeded, Spend, SpendCallback
 from ragdemo.refusal import REFUSAL, Decision
 
 
@@ -32,6 +34,31 @@ def test_out_of_corpus_question_is_refused(client):
 
 def test_empty_question_is_rejected(client):
     assert client.post("/chat", json={"question": ""}).status_code == 422
+    assert client.post("/chat", json={"question": "   "}).status_code == 422
+
+
+class FailingPipeline:
+    def __init__(self, error: Exception) -> None:
+        self.error = error
+
+    def chat(self, question: str):
+        raise self.error
+
+
+def test_model_failures_are_reported_without_a_stack_trace():
+    """The spend cap and a failed model call each get a status code and a message, not a bare 500."""
+    client = TestClient(app)
+    try:
+        app.dependency_overrides[get_pipeline] = lambda: FailingPipeline(BudgetExceeded("estimated spend $0.40 reached the cap of $0.40"))
+        capped = client.post("/chat", json={"question": "How often?"})
+        assert capped.status_code == 503
+        assert "MAX_SPEND_USD" in capped.json()["detail"]
+        app.dependency_overrides[get_pipeline] = lambda: FailingPipeline(MODEL_ERRORS[0]("provider said no"))
+        failed = client.post("/chat", json={"question": "How often?"})
+        assert failed.status_code == 502
+        assert "provider said no" not in failed.text
+    finally:
+        app.dependency_overrides.clear()
 
 
 def test_health_reports_chunk_count(client):

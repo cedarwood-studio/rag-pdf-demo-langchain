@@ -13,10 +13,14 @@ from typing import Any
 from langchain_core.callbacks import BaseCallbackHandler
 from langchain_core.outputs import LLMResult
 from langchain_openai import ChatOpenAI
+from openai import OpenAIError
 
 
 class BudgetExceeded(RuntimeError):
     pass
+
+
+MODEL_ERRORS: tuple[type[Exception], ...] = (OpenAIError,)  # what a failed model call raises; the API turns these into a 502
 
 
 @dataclass
