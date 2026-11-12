@@ -32,7 +32,7 @@ from langchain_core.runnables import Runnable
 from . import config
 from .answer import format_passages
 from .eval import IMPLEMENTATION, QUESTIONS, RESULTS, _match
-from .llm import MODEL_ERRORS, Spend, make_chat_model
+from .llm import MODEL_ERRORS, BudgetExceeded, Spend, make_chat_model
 from .pipeline import Pipeline, build_pipeline
 
 CORRECTNESS_PROMPT = (
@@ -175,6 +175,8 @@ def main() -> None:
     questions = json.loads(args.questions.read_text())
     try:
         report = evaluate(pipeline, grader, questions)
+    except BudgetExceeded as error:
+        sys.exit(f"stopped: {error}")
     except MODEL_ERRORS as error:
         sys.exit(f"stopped: chat request failed: {getattr(error, 'message', type(error).__name__)}")
     label = args.label or f"answers-{args.collection}"
